@@ -1,0 +1,593 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://kit.fontawesome.com/40074df83f.js" crossorigin="anonymous"></script>
+    <title>Thrift - Resale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+
+        body {
+            font-family: "Montserrat";
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat";
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        p {
+            font-family: "Montserrat";
+            color: #ffffff;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #000;
+        }
+
+
+        .big-heading {
+            font-size: 3.5rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            line-height: 1.5;
+        }
+
+        .container-fluid {
+            padding: 7% 15%;
+        }
+
+        .blog {
+            background-color: #000000;
+            border-radius: 10px;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .blog-comm {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+        }
+
+        .blog-head {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+        }
+
+        /* Sections */
+
+        .colored-section {
+            background-color: #ffffff;
+            color: #fff7f7;
+        }
+
+        .white-section {
+            background-color: #130f1b;
+        }
+        .white-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: black;
+            background-color: rgba(245, 235, 220, 0.845);
+            margin-top: 20px; 
+            padding: 10px; 
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+            overflow: hidden;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /*header*/
+        header {
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 23px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            display: inline-block;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        #menuitems{
+            display: flex;
+            text-align: right;
+            float: right;
+        }
+        a {
+            text-decoration: none;
+            color: #130f1b;
+            font-size: 20px;
+        }
+
+        p {
+            color: #ffffff;
+        }
+
+        .menu-icon {
+            width: 28px;
+            margin-left: 28px;
+            display: none;
+        }
+
+        .acc {
+            margin-left: 20px
+        }
+
+        label {
+            color: white;
+        }
+
+        ul {
+            color: white;
+        }
+
+        #title .container-fluid {
+            max-width: 1300px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+            overflow: hidden;
+        }
+
+        .col-md-3 {
+            display: inline-block;
+            margin-left: -4px;
+        }
+
+        .carousel-indicators .active {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .col-md-3 img {
+            width: 170px;
+            height: 200px;
+        }
+
+        body .carousel-indicator li {
+            background-color: blue;
+        }
+
+        body .carousel-indicators {
+            bottom: -40px;
+        }
+
+        .carousel-indicators li {
+
+
+            background-color: #7270fc;
+        }
+
+       
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            top: auto;
+            bottom: auto;
+            padding-top: 222px;
+        }
+
+        body .no-padding {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        /*Download buttons */
+        .download-button {
+            margin: 5% 3% 5% 0;
+        }
+
+        /* Title Image */
+
+        .hangers {
+            position: absolute;
+            background-size: cover;
+            padding: 0% 0% 4%;
+            background-position: center;
+            left: -1px;
+            height: 153px;
+            z-index: 13;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        #box {
+            padding: 25px 50px 75px 100px;
+        }
+
+        /* Features */
+
+        #features {
+            position: relative;
+        }
+
+        .form-row {
+            padding-bottom: 18px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+        }
+
+        .feature-box {
+            padding: 5%;
+        }
+
+        .icon {
+            color: #ef8172;
+            margin-bottom: 1rem;
+        }
+
+        .icon:hover {
+            color: #ff4c68;
+        }
+
+        /* Testimonial */
+
+    
+
+        #press {
+            background-color: #ef8172;
+            padding-bottom: 3%;
+        }
+
+        .press-logo {
+            width: 15%;
+            margin: 20px 20px 50px;
+        }
+
+        /* Pricing Section */
+
+        #pricing {
+            padding: 100px;
+        }
+
+        .pricing-column {
+            padding: 3% 2%;
+        }
+
+        .price-text {
+            font-size: 2.2rem;
+            line-height: 1.5;
+            font-weight: normal;
+            font-family: "Montserrat";
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: rgba(245, 235, 220, 0.845);
+            color: #130f1b;
+            font-size: 14px;
+            padding: 60px 0 20px;
+
+        }
+
+        footer p {
+            color: #130f1b;
+        }
+
+        footer h4 {
+            margin-bottom: 20px;
+
+        }
+
+        .footer-col-1,
+        .footer-col-2,
+        .footer-col-3 {
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-1 {
+            flex-basis: 30%;
+            text-align: center;
+        }
+
+        .footer-col-1 h4 {
+            color: #000;
+        }
+
+        .footer-col-2 {
+            flex: 1;
+            text-align: center;
+            margin: 0 10px 0 10px;
+        }
+
+        .footer-col-2 img {
+            width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-3 {
+            flex-basis: 30%;
+            text-align: center;
+        }
+
+        .footer-col-3 h4 {
+            color: #000;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            color: #000;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        @media (max-width: 1028px) {
+
+            #title {
+                text-align: center
+            }
+
+            .title-image {
+                position: static;
+                transform: rotate(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'image/LOGO.jpg' %}" width=" 300px">
+            </div>
+
+            <nav>
+                <ul id="menuitems">
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <li><a href="{% url 'about' %}">ABOUT</a></li>
+                    <li><a href="{% url 'ResaleHome' %}">PRODUCT</a></li>
+                    <li><a href="{% url 'RForm' %}">Upload</a></li>
+                    <li><a href="/resale/tracker">Tracker</a></li>
+
+                    <li>
+                        <form method='get' action='/resale/search/' class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                                name="search" id="search"> <br>
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li style="width:148px;">
+                        <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body"
+                            data-toggle="popover" data-placement="bottom" data-html="true"
+                            data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                            Cart(<span id="cart">0</span>)
+                        </button>
+                    </li>
+                    {% endif %}
+        </div>
+
+        </nav>
+
+    </div>
+    </section>
+    <section class="white-section" id="resale">
+        <h1>All PRODUCTS</h1>
+        <div class="container-fluid">
+            {% for product, range, nSlides in allProds %}
+            <h5 class="my-4" style="text-align: center;font-family:Montserrat;font-size: 25px;">{{product.0.category}}
+            </h5>
+            <div class="row">
+                <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel" style="padding-right: 0px;
+            padding-left: 0px;">
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+                        {% for i in range %}
+                        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="container carousel-inner no-padding">
+                        <div class="carousel-item active">
+                            {% for i in product %}
+                            <div class="col-xs-3 col-sm-3 col-md-3 pt-4" style="margin-right: 20px;">
+                                <div class="card align-items-center"
+                                    style="width: 18rem; background-color: #000000; padding-top:25px;font-family:Montserrat">
+
+                                    <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}} {{i.size}}</h5>
+                                        <p class="card-text">{{i.desc|slice:"0:20"}}...</p><br>
+                                        <h6 class="card-title">Price: <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                                        <span id="divpr{{i.id}}" class="divpr">
+                                            <button id="pr{{i.id}}" class="btn btn-secondary cart">Add To Cart</button>
+                                        </span>
+                                        <a href="/resale/products/{{i.id}}"><button id="qv{{i.id}}"
+                                                class="btn btn-secondary cart">QuickView</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                        </div>
+                        <div class="carousel-item">
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Terms and Conditions</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+                <div class="footer-col-2">
+                    <img src="{% static 'image/LOGO.jpg' %}">
+                    <p> Our purpose is to promote and affordable fashion</p>
+                </div>
+                <div class="footer-col-3">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">Thrift Store &copy;2023</p>
+        </div>
+    </footer>
+    <script>
+        // Find out the cart items from localStorage
+        if (localStorage.getItem('cart') == null) {
+            var cart = {};
+        } else {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCart(cart);
+        }
+
+        // If the add to cart button is clicked, add/increment the item
+        //$('.cart').click(function() {
+        $('.divpr').on('click', 'button.cart', function () {
+            var idstr = this.id.toString();
+            if (cart[idstr] != undefined) {
+                qty = cart[idstr][0] + 1;
+            } else {
+                qty = 1;
+                name = document.getElementById('name' + idstr).innerHTML;
+                price = document.getElementById('price' + idstr).innerHTML;
+                cart[idstr] = [qty, name, parseInt(price)];
+
+            }
+            updateCart(cart);
+
+        });
+
+        $('#popcart').popover();
+        updatePopover(cart);
+
+        function updatePopover(cart) {
+            console.log('We are inside updatePopover');
+            var popStr = "";
+            popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+            var i = 1;
+            for (var item in cart) {
+                popStr = popStr + "<b>" + i + "</b>. ";
+                popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+                i = i + 1;
+
+            }
+
+            popStr = popStr + "</div> <a href='/resale/checkout'><button class='btn btn-secondary' id ='checkout'>Checkout</button></a> <button class='btn btn-secondary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+            console.log(popStr);
+            document.getElementById('popcart').setAttribute('data-content', popStr);
+            $('#popcart').popover('show');
+
+        }
+
+        function clearCart() {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            for (var item in cart) {
+                document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-secondary cart">Add To Cart</button>'
+            }
+            localStorage.clear();
+            cart = {};
+            updateCart(cart);
+
+
+        }
+
+        function updateCart(cart) {
+            var sum = 0;
+            for (var item in cart) {
+                sum = sum + cart[item][0];
+
+
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cart').innerHTML = sum;
+            console.log(cart);
+            updatePopover(cart);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

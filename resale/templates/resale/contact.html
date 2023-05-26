@@ -1,0 +1,501 @@
+<!-- {% extends 'resale/basic.html' %}
+
+{% block title%} Contact Us - My Awesome Cart{% endblock %}
+{% block body %}
+<div class="container my-3">
+  <h3>Contact Us</h3>
+  <form action="/resale/contact/" method="post">{% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+    </div>
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Phone</label>
+      <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number">
+    </div>
+
+
+    <div class="form-group">
+      <label for="desc">How May We Help You?</label>
+      <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+
+
+</div>
+{% endblock %}
+{% block js%}
+<script>
+  {% if thank %}
+  alert('Thanks for contacting us. We will get back to you soon!');
+
+  document.location = "/resale/contact";
+  {% endif %}
+</script>
+{% endblock %} -->
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="https://kit.fontawesome.com/40074df83f.js" crossorigin="anonymous"></script>
+  <title>Contact Us - My Awesome Cart</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+
+    body {
+      font-family: "Montserrat";
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Montserrat";
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    p {
+      font-family: "Montserrat";
+      color: #ffffff;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #000;
+    }
+
+
+    .big-heading {
+      font-size: 3.5rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .section-heading {
+      font-size: 3rem;
+      line-height: 1.5;
+    }
+
+    .container-fluid {
+      padding: 7% 15%;
+    }
+
+    .blog {
+      background-color: #000000;
+      border-radius: 10px;
+    }
+
+    img {
+      border-radius: 10px;
+    }
+
+    .blog-comm {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+    }
+
+    .blog-head {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+    }
+
+    /* Sections */
+
+    .colored-section {
+      background-color: #ffffff;
+      color: #fff7f7;
+    }
+
+    .white-section {
+      background-color: #130f1b;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: auto;
+      padding-left: 25px;
+      padding-right: 25px;
+      overflow: hidden;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    /*header*/
+    header {
+      background-color: #ffffff;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 23px;
+    }
+
+    nav {
+      flex: 1;
+      text-align: right;
+    }
+
+    nav ul {
+      display: inline-block;
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #130f1b;
+      font-size: 20px;
+    }
+
+    p {
+      color: #ffffff;
+    }
+
+    .menu-icon {
+      width: 28px;
+      margin-left: 28px;
+      display: none;
+    }
+
+    .acc {
+      margin-left: 20px
+    }
+
+    label {
+      color: white;
+    }
+
+    ul {
+      color: white;
+    }
+
+    #title .container-fluid {
+      max-width: 1300px;
+      margin: auto;
+      padding-left: 25px;
+      padding-right: 25px;
+      overflow: hidden;
+    }
+
+    /*Download buttons */
+    .download-button {
+      margin: 5% 3% 5% 0;
+    }
+
+    /* Title Image */
+
+    .hangers {
+      position: absolute;
+      background-size: cover;
+      padding: 0% 0% 4%;
+      background-position: center;
+      left: -1px;
+      height: 153px;
+      z-index: 13;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    #box {
+      padding: 25px 50px 75px 100px;
+    }
+
+    /* Features */
+
+    #features {
+      position: relative;
+    }
+
+    .form-row {
+      padding-bottom: 18px;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+    }
+
+    .feature-box {
+      padding: 5%;
+    }
+
+    .icon {
+      color: #ef8172;
+      margin-bottom: 1rem;
+    }
+
+    .icon:hover {
+      color: #ff4c68;
+    }
+
+    /* Testimonial */
+
+    #testimonials {
+      background-color: #000000;
+    }
+
+    .testimonial-text {
+      font-size: 2rem;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    .testimonial-image {
+      width: 10%;
+      border-radius: 100%;
+      margin: 20px;
+    }
+
+    #press {
+      background-color: #ef8172;
+      padding-bottom: 3%;
+    }
+
+    .press-logo {
+      width: 15%;
+      margin: 20px 20px 50px;
+    }
+
+    /* Pricing Section */
+
+    #pricing {
+      padding: 100px;
+    }
+
+    .pricing-column {
+      padding: 3% 2%;
+    }
+
+    .price-text {
+      font-size: 2.2rem;
+      line-height: 1.5;
+      font-weight: normal;
+      font-family: "Montserrat";
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: rgba(245, 235, 220, 0.845);
+      color: #130f1b;
+      font-size: 14px;
+      padding: 60px 0 20px;
+
+    }
+
+    footer p {
+      color: #130f1b;
+    }
+
+    footer h4 {
+      margin-bottom: 20px;
+
+    }
+
+    .footer-col-1,
+    .footer-col-2,
+    .footer-col-3 {
+      min-width: 250px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col-1 {
+      flex-basis: 30%;
+      text-align: center;
+    }
+
+    .footer-col-1 h4 {
+      color: #000;
+    }
+
+    .footer-col-2 {
+      flex: 1;
+      text-align: center;
+      margin: 0 10px 0 10px;
+    }
+
+    .footer-col-2 img {
+      width: 250px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col-3 {
+      flex-basis: 30%;
+      text-align: center;
+    }
+
+    .footer-col-3 h4 {
+      color: #000;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      color: #000;
+    }
+
+    .copyright {
+      text-align: center;
+    }
+
+    @media (max-width: 1028px) {
+
+      #title {
+        text-align: center
+      }
+
+      .title-image {
+        position: static;
+        transform: rotate(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="{% static 'image/LOGO.jpg' %}" width=" 300px">
+      </div>
+
+      <nav>
+        <ul id="menuitems">
+          <li><a href="{% url 'home' %}">HOME</a></li>
+          <li><a href="{% url 'about' %}">ABOUT</a></li>
+          <li><a href="{% url 'ResaleHome' %}">PRODUCT</a></li>
+          <li><a href="{% url 'RForm' %}">Upload</a></li>
+          <li><a href="/resale/tracker">Tracker</a></li>
+
+          <li>
+            <form method='get' action='/resale/search/' class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
+                id="search"> <br>
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </li>
+          {% if user.is_authenticated %}
+          <li style="width:148px;">
+            <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body"
+              data-toggle="popover" data-placement="bottom" data-html="true"
+              data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+              Cart(<span id="cart">0</span>)
+            </button>
+          </li>
+          {% endif %}
+    </div>
+
+    </nav>
+
+  </div>
+  </section>
+  <div class="container my-3">
+    <h3>Contact Us</h3>
+    <form action="/resale/contact/" method="post">{% csrf_token %}
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Phone</label>
+        <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number">
+      </div>
+  
+  
+      <div class="form-group">
+        <label for="desc">How May We Help You?</label>
+        <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  
+  
+  
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h4>Useful Links</h4>
+          <ul>
+            <li>About Us</li>
+            <li>Terms and Conditions</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div class="footer-col-2">
+          <img src="{% static 'image/LOGO.jpg' %}">
+          <p> Our purpose is to promote and affordable fashion</p>
+        </div>
+        <div class="footer-col-3">
+          <h4>Follow Us</h4>
+          <ul>
+            <li>Instagram</li>
+            <li>Facebook</li>
+            <li>Twitter</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">Thrift Store &copy;2023</p>
+    </div>
+  </footer>
+  <script>
+    {% if thank %}
+    alert('Thanks for contacting us. We will get back to you soon!');
+    document.location = "/resale/contact";
+    {% endif %}
+  </script>
+</body>
+
+</html>
